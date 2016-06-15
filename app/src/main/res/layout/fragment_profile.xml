@@ -4,7 +4,6 @@
     android:layout_height="match_parent">
 <ImageView
     android:id="@+id/imgProfile"
-    android:src="@drawable/ic_action_account_child"
     android:layout_gravity="center_horizontal"
     android:layout_width="56dp"
     android:layout_height="56dp"/>

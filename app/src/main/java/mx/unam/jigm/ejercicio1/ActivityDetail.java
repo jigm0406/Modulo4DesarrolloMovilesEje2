@@ -11,12 +11,14 @@ import mx.unam.jigm.ejercicio1.fragment.FragmentProfile;
  */
 
 public class ActivityDetail extends AppCompatActivity implements View.OnClickListener {
-
+String  userName;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        String userName=getIntent().getExtras().getString("key_user");
+
+        //String userName=getIntent().getExtras().getString("key_user");
+        userName=getIntent().getExtras().getString("key_user");
         String hello = String.format(getString(R.string.hello),userName);
         //txt.setText(hello);
         findViewById(R.id.btnFragmentA).setOnClickListener(this);
@@ -48,7 +50,8 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
     }
 
     private void changeFragmentA() {
-        FragmentProfile f = FragmentProfile.newInstance("Hola mundo");
+       // FragmentProfile f = FragmentProfile.newInstance("Hola mundo");
+        FragmentProfile f = FragmentProfile.newInstance(userName);
         getFragmentManager().beginTransaction().replace(R.id.FragmentHolder,f).commit();
     }
 }

@@ -43,15 +43,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 loading.setVisibility(View.GONE);
-                if(user.equals("unam") && pass.equals("curso"))
+                //comprobar que no esten vacias las casillas de usuario y contraseña
+                if(user.trim().length()>0 && pass.trim().length()>0)
                 {
+                    // enviar informacion e ir a la siguiente activity
                     Toast.makeText(getApplicationContext(),"Login",Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(),ActivityDetail.class);
                     intent.putExtra("key_user",user);
                     startActivity(intent);
                 }
                 else
-                    Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Ha equivocaso debe proporcionar usuario y contraseña",Toast.LENGTH_SHORT).show();
             }
         },1000*1);
     }
