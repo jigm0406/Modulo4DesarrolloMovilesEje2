@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(user.trim().length()>0 && pass.trim().length()>0)
                 {
                     // enviar informacion e ir a la siguiente activity
-                    Toast.makeText(getApplicationContext(),"Login",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(),ActivityDetail.class);
                     intent.putExtra("key_user",user);
                     startActivity(intent);

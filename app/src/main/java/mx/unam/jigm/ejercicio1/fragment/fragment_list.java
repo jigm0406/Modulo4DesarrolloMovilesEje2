@@ -7,6 +7,8 @@ package mx.unam.jigm.ejercicio1.fragment;
  */
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -18,8 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import mx.unam.jigm.ejercicio1.ActivityDetail;
 import mx.unam.jigm.ejercicio1.R;
 import mx.unam.jigm.ejercicio1.adapters.AdapterItemList;
+import mx.unam.jigm.ejercicio1.detalle.DetalleLista;
 import mx.unam.jigm.ejercicio1.model.ModelItem;
 
 import java.util.ArrayList;
@@ -32,7 +36,7 @@ public class fragment_list extends Fragment{
     private boolean isWifi;
 
     @Nullable
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list,container,false);
         listView = (ListView) view.findViewById(R.id.list_items);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -41,11 +45,15 @@ public class fragment_list extends Fragment{
                 AdapterItemList adapter= (AdapterItemList) parent.getAdapter();
                 ModelItem modelItem =adapter.getItem(position);
                 ModelItem modelItem2 = array.get(position);
-                Toast.makeText(getActivity(),modelItem2.item,Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                Intent intent = new Intent(getActivity(),DetalleLista.class);
+                //se obtienenlos datos a enviar
+                intent.putExtra("dato",modelItem2.item);
+                intent.putExtra("imagen",modelItem2.resourceId);
+                //llama a la activity de perfil de lista
+                startActivity(intent);
             }
         });
-
-
         final EditText mItemsText = (EditText) view.findViewById(R.id.mItemText);
         view.findViewById(R.id.btnAddItem).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +70,11 @@ public class fragment_list extends Fragment{
                     isWifi=!isWifi;
                     counter++;
                     mItemsText.setText("");
-
                 }
-
             }
         });
         return view;
     }
+
+
 }
