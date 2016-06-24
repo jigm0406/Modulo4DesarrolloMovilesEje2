@@ -1,8 +1,13 @@
 package mx.unam.jigm.ejercicio1;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +18,7 @@ import java.util.Date;
 import mx.unam.jigm.ejercicio1.fragment.fragment_list;
 import mx.unam.jigm.ejercicio1.fragment.FragmentProfile;
 import mx.unam.jigm.ejercicio1.model.ModelFecha;
+import mx.unam.jigm.ejercicio1.service.ServiceTimer;
 import mx.unam.jigm.ejercicio1.util.PreferenceUtil;
 
 /**
@@ -23,6 +29,13 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
     String  userName;
     private TextView txtTimer,txtFechaAcces;
     private PreferenceUtil util;
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int counter =intent.getExtras().getInt("timer");
+            txtTimer.setText(String.format("Session length %s seconds",counter));
+        }
+    };
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +49,7 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.btnFragmentB).setOnClickListener(this);
         //txtTimer = (TextView) findViewById(R.id.txtTimer);
         txtFechaAcces = (TextView) findViewById(R.id.txtFechaAcceso);
+        txtTimer = (TextView) findViewById(R.id.txtTimer);
         util =new PreferenceUtil(getApplicationContext());
         ModelFecha modelFecha = util.getFecha();
         //cargar datos fecha si existen en sharePreference
@@ -84,5 +98,28 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
        // FragmentProfile f = FragmentProfile.newInstance("Hola mundo");
         FragmentProfile f = FragmentProfile.newInstance(userName);
         getFragmentManager().beginTransaction().replace(R.id.FragmentHolder,f).commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ServiceTimer.ACTION_SEND_TIMER);
+        registerReceiver(broadcastReceiver,filter);
+        Log.d(ServiceTimer.TAG,"OnResume se reinicia el broadcast");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(ServiceTimer.TAG,"OnPause  quitando broadcast");
+        unregisterReceiver(broadcastReceiver);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(ServiceTimer.TAG,txtTimer.getText().toString());
+        stopService(new Intent(getApplicationContext(),ServiceTimer.class));
     }
 }

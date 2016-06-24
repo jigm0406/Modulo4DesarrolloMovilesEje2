@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import mx.unam.jigm.ejercicio1.model.ModelFecha;
+import mx.unam.jigm.ejercicio1.model.ModelTimestamp;
 import mx.unam.jigm.ejercicio1.model.ModelUser;
 
 /**
@@ -49,5 +50,18 @@ public class PreferenceUtil {
         if (TextUtils.isEmpty(mFechaAcceso))
             return null;
         return new ModelFecha(mFechaAcceso);
+    }
+    public void saveTimestamp (ModelTimestamp modelTimestamp){
+        if (modelTimestamp.timestamp.trim().length()>0 )
+        {
+            sp.edit().putString("timestamp", modelTimestamp.timestamp).apply();
+        }
+    }
+    public ModelTimestamp getTimestamp()
+    {
+        String mTimestamp=sp.getString("timestamp",null);
+        if (TextUtils.isEmpty(mTimestamp))
+            return null;
+        return new ModelTimestamp(mTimestamp);
     }
 }

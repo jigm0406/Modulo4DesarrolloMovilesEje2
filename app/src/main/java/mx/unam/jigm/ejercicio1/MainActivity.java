@@ -11,8 +11,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 //import mx.unam.jigm.service.ServiceTimer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import mx.unam.jigm.ejercicio1.model.ModelUser;
+import mx.unam.jigm.ejercicio1.service.ServiceTimer;
 import mx.unam.jigm.ejercicio1.util.PreferenceUtil;
 
 /**
@@ -79,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent intent= new Intent(getApplicationContext(),ActivityDetail.class);
                     intent.putExtra("key_user",user);
                     startActivity(intent);
+                    startService(new Intent(getApplicationContext(), ServiceTimer.class));
+                    Log.d(ServiceTimer.TAG,"inicia servicio");
                 }
                 else
                     Toast.makeText(getApplicationContext(),R.string.noUserPassword,Toast.LENGTH_SHORT).show();

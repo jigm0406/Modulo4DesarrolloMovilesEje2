@@ -16,24 +16,10 @@
             </intent-filter>
             <!-- Actividad para el la segunda actividad donde se usan 2 fragment -->
         </activity>
-        <activity android:name=".ActivityDetail">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTIVITYDETAIL" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ActivityDetail"/>
         <!-- Actividad para el usuario seleccionado de la lista -->
-        <activity
-            android:name=".detalle.DetalleLista"
-            android:label="@string/title_activity_detalle_lista"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.DETALLELISTA" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".detalle.DetalleLista"/>
+        <service android:name=".service.ServiceTimer"/>
     </application>
 
 </manifest>
