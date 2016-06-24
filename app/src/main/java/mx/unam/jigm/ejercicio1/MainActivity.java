@@ -14,6 +14,8 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import mx.unam.jigm.ejercicio1.model.ModelFecha;
+import mx.unam.jigm.ejercicio1.model.ModelTimestamp;
 import mx.unam.jigm.ejercicio1.model.ModelUser;
 import mx.unam.jigm.ejercicio1.service.ServiceTimer;
 import mx.unam.jigm.ejercicio1.util.PreferenceUtil;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          mUser=(EditText) findViewById(R.id.activity_main_user);
         mPassword= (EditText) findViewById(R.id.activity_main_password);
         findViewById(R.id.activity_main_login).setOnClickListener(this);
+        findViewById(R.id.btnCerrarSesion).setOnClickListener(this);
         loading=findViewById(R.id.progress);
         findViewById(R.id.btnRegisterLogin).setOnClickListener(this);
         checkbox = (CheckBox) findViewById(R.id.chkRememberMe);
@@ -59,9 +62,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.activity_main_login:
                 processData();
                 break;
+            case R.id.btnCerrarSesion:
+                cerrarSesiones();
+                break;
         }
     }
+    private void cerrarSesiones(){
+        ModelUser modelUser = util.getUser();
+        //blanquear datos de usuario y password si existen en sharePreference
+        if (modelUser==null){}
+        else
+        {
+            if (modelUser.userName.trim().length() > 0 && modelUser.password.trim().length() > 0)
+            {
+                util.saveUser(new ModelUser("",""));
+            }
+        }
+        ModelFecha modelFecha = util.getFecha();
+        //blanquear datos de usuario y password si existen en sharePreference
+        if (modelFecha==null){}
+        else
+        {
+            if (modelFecha.fechaAcceso.trim().length() > 0 )
+            {
+                util.saveFecha(new ModelFecha(""));
+            }
+        }
+        ModelTimestamp modelTimestamp = util.getTimestamp();
+        //blanquear datos del timestamp si existen en sharePreference
+        if (modelTimestamp==null)
+        {}
+        else
+        {
+            if (modelTimestamp.timestamp.trim().length() > 0)
+            {
+                util.saveTimestamp(new ModelTimestamp(""));
+            }
 
+        }
+
+    }
     private void processData() {
         final String user= mUser.getText().toString();
         final String pass = mPassword.getText().toString();

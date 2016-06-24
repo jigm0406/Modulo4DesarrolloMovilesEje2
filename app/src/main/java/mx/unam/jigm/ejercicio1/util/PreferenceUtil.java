@@ -21,6 +21,7 @@ public class PreferenceUtil {
     public PreferenceUtil(Context context) {
         sp=context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
     }
+
     //para guardar los datos en el preference
     public void saveUser (ModelUser modelUser) {
         //se valida que no venga vacio
