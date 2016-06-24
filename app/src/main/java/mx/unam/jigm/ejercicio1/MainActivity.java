@@ -73,8 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //guardar usuario y pasword en sharedpreference si eligio el usuario
                              if (checkbox.isChecked()){
                                  util.saveUser(new ModelUser(user,pass));
-                                //finish();
-                            }
+                             }
                       // enviar informacion e ir a la siguiente activity
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(),ActivityDetail.class);

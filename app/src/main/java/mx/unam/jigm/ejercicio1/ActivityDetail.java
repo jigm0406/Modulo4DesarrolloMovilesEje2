@@ -52,11 +52,9 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
                  txtFechaAcces.setText("Primer acceso");
              }
         }
-        //guardar la fecha en el sharepreference
+        //guardar la ultima hora y dia de acceso.
             String fechaAcc = new SimpleDateFormat("dd-MM-yy hh:mm").format(new Date());
             util.saveFecha(new ModelFecha(fechaAcc));
-            //finish();
-
     }
 
     @Override
