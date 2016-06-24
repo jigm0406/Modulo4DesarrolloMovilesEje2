@@ -36,11 +36,13 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Space
+        <Button
+            android:id="@+id/btnRegisterLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="visible"
+            android:text="Register"
             />
         <Button
             android:layout_weight="1"
@@ -50,4 +52,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+    <CheckBox
+        android:layout_marginTop="16dp"
+        android:id="@+id/chkRememberMe"
+        android:layout_below="@+id/activity_main_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remember credential"/>
 </RelativeLayout>
