@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
     private void cerrarSesiones(){
+        stopService(new Intent(getApplicationContext(),ServiceTimer.class));
         util.clearProfile();
         Toast.makeText(getApplicationContext(),R.string.TxtBorrarShared,Toast.LENGTH_LONG).show();
         //finish();

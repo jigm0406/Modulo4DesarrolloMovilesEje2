@@ -54,10 +54,10 @@ public class PreferenceUtil {
 //borrar variebles del archivo de preferencias.
     public void clearProfile()
     {
-        sp.edit().remove("user_name");
-        sp.edit().remove("user_password");
-        sp.edit().remove("fecha_acceso");
-        sp.edit().remove("timestamp");
+        sp.edit().putString("user_name", "").apply();
+        sp.edit().putString("user_password", "").apply();
+        sp.edit().putString("fecha_acceso", "").apply();
+        sp.edit().putString("timestamp", "").apply();
         sp.edit().commit();
     }
 
