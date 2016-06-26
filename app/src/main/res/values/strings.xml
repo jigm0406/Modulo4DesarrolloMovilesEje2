@@ -1,8 +1,26 @@
 <resources>
-    <string name="app_name">Ejercicio1</string>
+    <string name="app_name">Exercise 2</string>
     <string name="username_text">User</string>
     <string name="hello" formatted="false">hello %s welcome</string>
-    <string name="title_activity_detalle_lista">DetalleLista</string>
-    <string name="noUserPassword">Ha equivocaso debe proporcionar usuario y contraseña</string>
-    <string name="TxtCerarsesión">Cerrar sesión</string>
+    <string name="title_activity_detalle_lista">Detil List</string>
+    <string name="noUserPassword">user and password not foud</string>
+    <string name="TxtCerarsesión">Close session</string>
+    <string name="TxtBorrarShared">erase file prefrence</string>
+    <string name="botonuser_register">Register</string>
+    <string name="textpwd_register">password</string>
+    <string name="textuser_register">username</string>
+    <string name="errorusrpwd">no exist user/password</string>
+    <string name="userhintmain">user</string>
+    <string name="pswrdhintmain">password</string>
+    <string name="btnfragmentB">Fragment B</string>
+    <string name="btnfragmentA">Fragment A</string>
+    <string name="txtoneacces">first access</string>
+    <string name="txtlastdate">last date access:</string>
+    <string name="erroregister">Do´nt user register</string>
+    <string name="txtwelcome">Welcome</string>
+    <string name="txtBtnregister">Register</string>
+    <string name="txtBtnlogin">Login</string>
+    <string name="activity_register_title">USER REGISTER</string>
+    <string name="activity_detalles_title">DETAILS</string>
+    <string name="activity_DetailList">DETAILS LIST</string>
 </resources>

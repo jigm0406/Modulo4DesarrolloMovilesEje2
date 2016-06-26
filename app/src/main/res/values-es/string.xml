@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ejercicio 2</string>
+    <string name="username_text">Usuario</string>
+    <string name="hello" formatted="false">hola %s bienvenido</string>
+    <string name="title_activity_detalle_lista">Detalle Lista</string>
+    <string name="noUserPassword">usuario y contraseña no son correctos</string>
+    <string name="TxtCerarsesión">Cerrar sesión</string>
+    <string name="TxtBorrarShared">Se borro el archivo de preferencias</string>
+    <string name="botonuser_register">Registro</string>
+    <string name="textpwd_register">contraseña</string>
+    <string name="textuser_register">usuario</string>
+    <string name="errorusrpwd">faltan usuario/contraseña</string>
+    <string name="userhintmain">usuario</string>
+    <string name="pswrdhintmain">contraseña</string>
+    <string name="btnfragmentB">Fragment B</string>
+    <string name="btnfragmentA">Fragment A</string>
+    <string name="txtoneacces">Primer acceso</string>
+    <string name="txtlastdate">ultima fecha acceso:</string>
+    <string name="erroregister">No es usuario registrado</string>
+    <string name="txtwelcome">Bienvenido</string>
+    <string name="txtBtnregister">Registro</string>
+    <string name="txtBtnlogin">Accesar</string>
+    <string name="activity_register_title">REGISTRO USUARIO</string>
+    <string name="activity_detalles_title">DETALLES</string>
+    <string name="activity_DetailList">LISTA DETALLES</string>
+</resources>

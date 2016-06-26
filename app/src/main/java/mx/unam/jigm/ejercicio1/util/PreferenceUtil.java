@@ -14,19 +14,17 @@ import mx.unam.jigm.ejercicio1.model.ModelUser;
  */
 public class PreferenceUtil {
     //archivo de preferencias
-    private static final String FILE_NAME ="app_preference";
+    private static final String FILE_NAME = "app_preference";
     private final SharedPreferences sp;
 
-//define el nombre de las preferencias, mode private nadie mas que la aplicacion puede usarlo
+    //define el nombre de las preferencias, mode private nadie mas que la aplicacion puede usarlo
     public PreferenceUtil(Context context) {
-        sp=context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
+        sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
     }
-
     //para guardar los datos en el preference
-    public void saveUser (ModelUser modelUser) {
+    public void saveUser(ModelUser modelUser) {
         //se valida que no venga vacio
-        if (modelUser.userName.trim().length()>0 && modelUser.password.trim().length()>0)
-        {
+        if (modelUser.userName.trim().length() > 0 && modelUser.password.trim().length() > 0) {
             sp.edit().putString("user_name", modelUser.userName).apply();
             sp.edit().putString("user_password", modelUser.password).apply();
         }
@@ -42,7 +40,8 @@ public class PreferenceUtil {
     public void saveFecha (ModelFecha modelFecha){
         if (modelFecha.fechaAcceso.trim().length()>0 )
         {
-            sp.edit().putString("fecha_acceso", modelFecha.fechaAcceso).apply();
+
+                sp.edit().putString("fecha_acceso", modelFecha.fechaAcceso).apply();
         }
     }
     public ModelFecha getFecha()
@@ -52,9 +51,18 @@ public class PreferenceUtil {
             return null;
         return new ModelFecha(mFechaAcceso);
     }
-    public void saveTimestamp (ModelTimestamp modelTimestamp){
-        if (modelTimestamp.timestamp.trim().length()>0 )
-        {
+//borrar variebles del archivo de preferencias.
+    public void clearProfile()
+    {
+        sp.edit().remove("user_name");
+        sp.edit().remove("user_password");
+        sp.edit().remove("fecha_acceso");
+        sp.edit().remove("timestamp");
+        sp.edit().commit();
+    }
+
+    public void saveTimestamp (ModelTimestamp modelTimestamp) {
+        if (modelTimestamp.timestamp.trim().length() > 0) {
             sp.edit().putString("timestamp", modelTimestamp.timestamp).apply();
         }
     }

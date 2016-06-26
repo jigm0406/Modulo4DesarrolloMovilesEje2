@@ -22,7 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <Button
-        android:text="Fragment"
+        android:text="@string/btnfragmentA"
         android:layout_weight="1"
         android:id="@+id/btnFragmentA"
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         />
     <Button
         android:layout_weight="1"
-        android:text="FargmentB"
+        android:text="@string/btnfragmentB"
         android:id="@+id/btnFragmentB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

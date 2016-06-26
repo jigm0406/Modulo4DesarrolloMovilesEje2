@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="backcerrarsession">#F78181</color>
+    <color name="txtcerrarsession">#F3F781</color>
+    <color name="colorTxtBtnReg">#FCFBF6</color>
+    <color name="colorBackBtnReg">#1635B1</color>
 </resources>

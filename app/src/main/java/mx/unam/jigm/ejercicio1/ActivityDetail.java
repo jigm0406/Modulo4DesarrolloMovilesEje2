@@ -59,11 +59,11 @@ public class ActivityDetail extends AppCompatActivity implements View.OnClickLis
             {
              if (modelFecha.fechaAcceso.trim().length() > 0)
             {
-                  txtFechaAcces.setText("ultima fecha acceso:"+modelFecha.fechaAcceso);
+                  txtFechaAcces.setText(R.string.txtlastdate+modelFecha.fechaAcceso);
             }
                 else
              {
-                 txtFechaAcces.setText("Primer acceso");
+                 txtFechaAcces.setText(R.string.txtoneacces);
              }
         }
         //guardar la ultima hora y dia de acceso.

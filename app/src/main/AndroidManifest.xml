@@ -16,9 +16,10 @@
             </intent-filter>
             <!-- Actividad para el la segunda actividad donde se usan 2 fragment -->
         </activity>
-        <activity android:name=".ActivityDetail"/>
+        <activity android:name=".ActivityDetail" android:label="@string/activity_detalles_title"/>
+        <activity android:name=".ActivitiRegister" android:label="@string/activity_register_title"/>
         <!-- Actividad para el usuario seleccionado de la lista -->
-        <activity android:name=".detalle.DetalleLista"/>
+        <activity android:name=".detalle.DetalleLista" android:label="@string/activity_DetailList"/>
         <service android:name=".service.ServiceTimer"/>
     </application>
 

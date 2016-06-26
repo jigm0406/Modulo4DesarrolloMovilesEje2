@@ -9,12 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <EditText
+<LinearLayout
+    android:gravity="right"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cerrarsesion">
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:text="@string/TxtCerarsesión"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/backcerrarsession"
+        android:textColor="@color/txtcerrarsession"/>
+</LinearLayout>
+   <LinearLayout
+       android:id="@+id/linearUsrPwd"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/cerrarsesion">
+       <EditText
         android:id="@+id/activity_main_user"
-        android:hint="usuario"
+        android:hint="@string/userhintmain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/cerrarsesion"
         />
     <EditText
         android:id="@+id/activity_main_password"
@@ -23,7 +43,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/activity_main_user"
-        android:hint="contraseña"/>
+        android:hint="@string/pswrdhintmain"/>
+       <CheckBox
+           android:layout_marginTop="16dp"
+           android:id="@+id/chkRememberMe"
+           android:layout_below="@+id/activity_main_password"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Remember credential"/>
     <ProgressBar
     android:id="@+id/progress"
     android:layout_width="wrap_content"
@@ -31,38 +58,30 @@
     android:visibility="gone"
     android:layout_centerInParent="true"
     />
+   </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btnCerrarSesion"
-            android:text="@string/TxtCerarsesión"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btnRegisterLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="visible"
-            android:text="Register"
+android:textColor="@color/colorTxtBtnReg"
+            android:background="@color/colorBackBtnReg"
+            android:text="@string/txtBtnregister"
+
             />
         <Button
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="Login"
+            android:text="@string/txtBtnlogin"
             android:id="@+id/activity_main_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <CheckBox
-        android:layout_marginTop="16dp"
-        android:id="@+id/chkRememberMe"
-        android:layout_below="@+id/activity_main_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remember credential"/>
 </RelativeLayout>
